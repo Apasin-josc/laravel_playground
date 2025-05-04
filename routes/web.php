@@ -9,9 +9,13 @@ Route::get('/', function () {
 Route::get('/lists', function (){
     $tasks = [
         ["name" => "itmakesense", "priority" => "high", "id" => "1"],
-        ["name" => "do exercise", "priority" => "high", "id" => "2"],
+        ["name" => "do exercise", "priority" => "low", "id" => "2"],
     ];
     return view('lists.index', ["greeting" => "hello", "tasks" => $tasks]);
+});
+
+Route::get('/lists/create', function () {
+    return view('lists.create');
 });
 
 Route::get('/lists/{id}', function ($id){
