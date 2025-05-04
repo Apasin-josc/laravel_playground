@@ -6,18 +6,19 @@
 </head>
 <body>
     <h2> Currently Available tasks</h2>
+
+    @if($greeting === "hello")
+    <p> Hi from inside the if statement </p>
+    @endif
+
     <p>{{ $greeting }}</p>
     <ul>
-        <li>
-            <a href="/lists/{{$tasks[0]["id"]}}">
-                {{$tasks[0]["name"]}}
-            </a>
-        </li>
-        <li>
-            <a href="/lists/{{$tasks[1]["id"]}}">
-                {{$tasks[1]["name"]}}
-            </a>
-        </li>
+        @foreach($tasks as $task)
+            <li>
+                <p>{{ $task['name'] }}</p>
+                <a href='/lists/{{$task['id']}}'>View your tasks</a>
+            </li>
+        @endforeach
     </ul>
 </body>
 </html>
