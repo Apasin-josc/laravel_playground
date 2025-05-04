@@ -6,8 +6,18 @@
 </head>
 <body>
     <h2> Currently Available tasks</h2>
+    <p>{{ $greeting }}</p>
     <ul>
-        <li> Tasks : </li>
+        <li>
+            <a href="/lists/{{$tasks[0]["id"]}}">
+                {{$tasks[0]["name"]}}
+            </a>
+        </li>
+        <li>
+            <a href="/lists/{{$tasks[1]["id"]}}">
+                {{$tasks[1]["name"]}}
+            </a>
+        </li>
     </ul>
 </body>
 </html>
