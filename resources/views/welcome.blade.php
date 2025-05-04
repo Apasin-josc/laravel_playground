@@ -9,8 +9,8 @@
         Welcome to the Laravel Playground
     </h1>
         <p> Click the button below to get a list</p>
-        <a href = "" class="btn">
-            get your list!
+        <a href = "/lists" class="btn">
+            get your lists!
         </a>
 </body>
 </html>
