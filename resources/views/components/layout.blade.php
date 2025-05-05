@@ -9,8 +9,8 @@
     <header>
         <nav>
             <h1> Laravel Herd Playground</h1>
-            <a href='/lists'> Do all your stuff</a>
-           <a href='/lists/create'> Create more tasks </a>
+            <a href='{{ route('tasks.index') }}'> Do all your stuff</a>
+           <a href='{{ route('tasks.create') }}'> Create more tasks </a>
         </nav>
     </header>
 

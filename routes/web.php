@@ -3,15 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', fn () => view('welcome'));
 
-Route::get('/lists',[TaskController::class, 'index']);
-
-Route::get('/lists/create', [TaskController::class, 'create']);
-
-Route::get('/lists/{id}', [TaskController::class, 'show']);
+Route::get('/lists',[TaskController::class, 'index'])->name('tasks.index');
+Route::get('/lists/create', [TaskController::class, 'create'])->name('tasks.create');
+Route::get('/lists/{id}', [TaskController::class, 'show'])->name('tasks.show');
 
 
 //yourdomain.com/contact    /about/ 
