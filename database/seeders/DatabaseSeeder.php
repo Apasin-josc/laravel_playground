@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
+            TeamSeeder::class,
             TaskSeeder::class,
         ]);
     }
