@@ -9,4 +9,6 @@
             </li>
         @endforeach
     </ul>
+
+    {{ $tasks->links() }}
 </x-layout>
