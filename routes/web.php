@@ -9,14 +9,9 @@ Route::get('/', function () {
 
 Route::get('/lists',[TaskController::class, 'index']);
 
-Route::get('/lists/create', function () {
-    return view('lists.create');
-});
+Route::get('/lists/create', [TaskController::class, 'create']);
 
-Route::get('/lists/{id}', function ($id){
-    //fetch record with id
-    return view('lists.show', ["id" => $id]);
-});
+Route::get('/lists/{id}', [TaskController::class, 'show']);
 
 
 //yourdomain.com/contact    /about/ 

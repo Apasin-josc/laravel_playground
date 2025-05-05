@@ -17,12 +17,15 @@ class TaskController extends Controller
   
       public function show($id) {
         // route --> /lists/{id}
+        $task = Task::findOrFail($id);
         // fetch a single record & pass into show view
+        return view('lists.show', ["task" => $task]);
       }
   
       public function create() {
         // route --> /lists/create
         // render a create view (with web form) to users
+        return view('lists.create');
       }
   
       public function store() {
