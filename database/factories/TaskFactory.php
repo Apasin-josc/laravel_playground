@@ -17,7 +17,10 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'priority' => fake()->randomElement(['low', 'high']),
+            'description' => fake()->realText(500),
+            /* 'skill' => fake()->numberBetween(0, 5),  smallest number and highest number*/
         ];
     }
 }
