@@ -19,7 +19,8 @@
         <input 
           type="text" 
           id="priority" 
-          name="priority" 
+          name="priority"
+          value="{{ old('priority') }}"
           required
         >
 
@@ -30,19 +31,28 @@
           name="description" 
           rows="5" 
           required
-        ></textarea>
+        >{{ old('description') }}</textarea>
 
         <!-- select a team -->
         <label for="team_id">Team:</label>
         <select id="team_id" name="team_id" required>
           <option value="" disabled selected>Select a team</option>
             @foreach ($teams as $team)
-                <option value="{{ $team->id }}">{{ $team->name }}</option>
+                <option value="{{ $team->id }}" {{ $team->id == old('team_id') ? 'selected' : '' }}>
+                  {{ $team->name }}
+                </option>
             @endforeach
         </select>
 
         <button type="submit" class="btn mt-4">Create Task</button>
 
         <!-- validation errors -->
+         @if ($errors->any())
+          <ul class="px-4 py-2 bg-red-100">
+            @foreach ($errors->all() as $error)
+                <li class="my-2 text-red-600">{{ $error }}</li>
+            @endforeach
+          </ul>
+         @endif
     </form>
 </x-layout>
