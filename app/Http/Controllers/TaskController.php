@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -25,7 +26,8 @@ class TaskController extends Controller
       public function create() {
         // route --> /lists/create
         // render a create view (with web form) to users
-        return view('lists.create');
+        $teams = Team::all();
+        return view('lists.create', ["teams" => $teams]);
       }
   
       public function store() {
