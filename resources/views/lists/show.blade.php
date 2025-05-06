@@ -11,4 +11,12 @@
         <p><strong>Location:</strong> {{ $task->team->location }}</p>
     </div>
 
+    <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button class="btn my-4" type="submit">
+            Delete Task
+        </button>
+    </form>
+
 </x-layout>
