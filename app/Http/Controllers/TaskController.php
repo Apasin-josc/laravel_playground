@@ -45,10 +45,9 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'Task created successfully!');
       }
   
-      public function destroy($id) {
+      public function destroy(Task $task) {
         // --> /lists/{id} (DELETE)
         // handle delete request to delete a task record from table
-        $task = Task::findOrFail($id);
         $task->delete();
         return redirect()->route('tasks.index')->with('success', 'Task deleted successfully!');
       }

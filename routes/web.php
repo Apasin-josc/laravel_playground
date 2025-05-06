@@ -9,5 +9,5 @@ Route::get('/lists',[TaskController::class, 'index'])->name('tasks.index');
 Route::get('/lists/create', [TaskController::class, 'create'])->name('tasks.create');
 Route::get('/lists/{id}', [TaskController::class, 'show'])->name('tasks.show');
 Route::post('/lists', [TaskController::class, 'store'])->name('tasks.store');
-Route::delete('/lists/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+Route::delete('/lists/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 
