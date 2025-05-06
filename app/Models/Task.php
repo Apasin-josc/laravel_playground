@@ -16,6 +16,7 @@ class Task extends Model
         'name',
         'priority',
         'description',
+        'team_id',
     ];
 
     /** @use HasFactory<\Database\Factories\TaskFactory> */

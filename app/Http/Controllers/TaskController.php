@@ -30,14 +30,24 @@ class TaskController extends Controller
         return view('lists.create', ["teams" => $teams]);
       }
   
-      public function store() {
+      public function store(Request $request) {
         // --> /lists/ (POST)
-        // hanlde POST request to store a new ninja record in table
+        // hanlde POST request to store a new task record in table
+        $validated = $request->validate([
+          'name' => 'required|string|max:255',
+          'priority' => 'required|string|in:high,low',
+          'description' => 'required|min:20|max:1000',
+          'team_id' => 'required|exists:teams,id',
+        ]);
+
+        Task::create($validated);
+        
+        return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
       }
   
       public function destroy($id) {
         // --> /lists/{id} (DELETE)
-        // handle delete request to delete a ninja record from table
+        // handle delete request to delete a task record from table
       }
   
       // edit() and update() for edit view and update requests
