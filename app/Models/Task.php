@@ -20,4 +20,10 @@ class Task extends Model
 
     /** @use HasFactory<\Database\Factories\TaskFactory> */
     use HasFactory;
+
+    public function team() {
+        return $this->belongsTo(Team::class);
+    }
+
+    //$task->team->name
 }

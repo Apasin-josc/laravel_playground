@@ -10,14 +10,14 @@ class TaskController extends Controller
     public function index() {
         // route --> /lists/
        /* $tasks = Task::all(); */
-       $tasks = Task::orderBy('created_at', 'desc')->paginate(10);
+       $tasks = Task::with('team')->orderBy('created_at', 'desc')->paginate(10);
 
         return view('lists.index', ["tasks" => $tasks]);
       }
   
       public function show($id) {
         // route --> /lists/{id}
-        $task = Task::findOrFail($id);
+        $task = Task::with('team')->findOrFail($id);
         // fetch a single record & pass into show view
         return view('lists.show', ["task" => $task]);
       }

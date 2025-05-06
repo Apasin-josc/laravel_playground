@@ -11,4 +11,8 @@ class Team extends Model
     
     /** @use HasFactory<\Database\Factories\TeamFactory> */
     use HasFactory;
+
+    public function tasks() {
+        return $this->hasMany(Task::class);
+    }
 }
