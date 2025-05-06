@@ -42,7 +42,7 @@ class TaskController extends Controller
 
         Task::create($validated);
         
-        return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
+        return redirect()->route('tasks.index')->with('success', 'Task created successfully!');
       }
   
       public function destroy($id) {
@@ -50,7 +50,7 @@ class TaskController extends Controller
         // handle delete request to delete a task record from table
         $task = Task::findOrFail($id);
         $task->delete();
-        return redirect()->route('tasks.index')->with('success', 'Task deleted successfully.');
+        return redirect()->route('tasks.index')->with('success', 'Task deleted successfully!');
       }
   
       // edit() and update() for edit view and update requests
