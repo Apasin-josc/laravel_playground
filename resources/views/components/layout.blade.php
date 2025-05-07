@@ -16,6 +16,9 @@
             <h1> Laravel Herd Playground</h1>
             <a href="{{ route('tasks.index') }}"> Do all your stuff</a>
             <a href="{{ route('tasks.create') }}"> Create more tasks </a>
+
+            <a href="{{ route('show.login') }}" class="btn"> Login </a>
+            <a href="{{ route('show.register') }} "class="btn"> Register </a>
         </nav>
     </header>
 
