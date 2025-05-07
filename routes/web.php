@@ -8,6 +8,8 @@ Route::get('/', fn () => view('welcome'));
 
 Route::get('/register', [AuthController::class, 'showRegister'])->name('show.register');
 Route::get('/login', [AuthController::class, 'showLogin'])->name('show.login');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/lists',[TaskController::class, 'index'])->name('tasks.index');
 Route::get('/lists/create', [TaskController::class, 'create'])->name('tasks.create');
