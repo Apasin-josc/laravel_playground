@@ -15,15 +15,22 @@
         <nav>
             <h1> Laravel Herd Playground</h1>
             <a href="{{ route('tasks.index') }}"> Do all your stuff</a>
-            <a href="{{ route('tasks.create') }}"> Create more tasks </a>
 
-            <a href="{{ route('show.login') }}" class="btn"> Login </a>
-            <a href="{{ route('show.register') }} "class="btn"> Register </a>
-            
-            <form action="{{ route('logout') }}" method="POST" class="m-0">
-                @csrf
-                <button type="submit" class="btn"> Logout </button>
-            </form>
+            @guest
+                <a href="{{ route('show.login') }}" class="btn"> Login </a>
+                <a href="{{ route('show.register') }} "class="btn"> Register </a>
+            @endguest
+
+            @auth
+                <span class="border-r-2 pr-2">
+                    Hi there, {{ Auth::user()->name }}
+                </span>
+                <a href="{{ route('tasks.create') }}"> Create more tasks </a>
+                <form action="{{ route('logout') }}" method="POST" class="m-0">
+                    @csrf
+                    <button type="submit" class="btn"> Logout </button>
+                </form>
+            @endauth
         </nav>
     </header>
 
